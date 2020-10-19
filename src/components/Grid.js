@@ -2,13 +2,9 @@ import React from "react"
 import {displaySize, cellStyle} from "./displayFunctions"
 import Footer from "./Footer"
 
-let offset;
-let side = 12;
-let width = 2*side; 
-let height = Math.sqrt(3)/2 * width; 
+
 const gridCols=30;
 const gridRows=30;
-let neighbors = 0;
 const PI = Math.PI; // 3.141592653589793
 const TWO_PI = 2 * PI; // 6.283185307179586
 
@@ -48,11 +44,17 @@ class Grid extends React.Component {
         for (let i = 0; i < gridRows; i++){
             for(let j = 0; j < gridCols; j++){
                 grid[i][j] = Math.floor(Math.random() * 2);
-
+                
             }
-       ///lsjljslj
         }
-        this.state = {grid: grid, playing: false };
+        this.state = {
+            grid: grid, 
+            playing: false,
+            alive: 0,
+            clickable: false
+            
+        
+        };
         this.animation = null;
         console.log(grid);
     }
@@ -62,7 +64,7 @@ class Grid extends React.Component {
             return;
         }
         this.animation = setInterval(() => {
-            if(! this.state.playing) {
+            if(!this.state.playing) {
                 console.log("Not playinbg");
                 return;
             }
@@ -104,11 +106,23 @@ class Grid extends React.Component {
         }, 1000);
     }
 
+    toggleCell =() =>{
+         let grid = make2DArray(gridRows, gridCols);
+        for (let i = 0; i < gridRows; i++){
+            for(let j = 0; j < gridCols; j++){
+                grid[i][j] = grid[i][j] ? this.state.alive : 1
+            }
+        }
+    }
+
+
    stopAnimation () {
        this.setState({playing: false});
    }
 
-   clearGrid() {}
+   clearGrid() {
+       this.setState({grid: this.map()});
+   }
 
    play() {
        this.setState({playing: true});
@@ -118,13 +132,17 @@ class Grid extends React.Component {
    render() {
         const grid = this.state.grid;
         return(
+            // 
             <div>   
-            <div style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, 20px)` }}>
+            <div className='grid' style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, 20px)` }}>
                 {grid.map((mapRows, i) => 
                 mapRows.map((mapCols, j) => (
                     <div
                         key={`${i}-${j}`}
+                        // className={mapRows.alive ? 1 : 0}
+                        onClick= {this.state.grid}
                         style={{
+                        //     cellStyle(this.state.alive, this.state.size)
                         width: 20,
                         height: 20,
                         background: grid[i][j] ? 'steelblue' : 'white',
