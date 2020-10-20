@@ -52,8 +52,6 @@ class Grid extends React.Component {
             playing: false,
             alive: 0,
             clickable: false
-            
-        
         };
         this.animation = null;
         console.log(grid);
@@ -116,6 +114,12 @@ class Grid extends React.Component {
     }
 
 
+    onClick(e){
+        ///FIND MOUSE CLICK HANDLER
+    
+    
+    }
+
    stopAnimation () {
        this.setState({playing: false});
    }
@@ -129,7 +133,7 @@ class Grid extends React.Component {
    }
     
 
-   render() {
+   render() {;
         const grid = this.state.grid;
         return(
             // 
@@ -139,20 +143,16 @@ class Grid extends React.Component {
                 mapRows.map((mapCols, j) => (
                     <div
                         key={`${i}-${j}`}
-                        // className={mapRows.alive ? 1 : 0}
-                        onClick= {this.state.grid}
-                        style={{
-                        //     cellStyle(this.state.alive, this.state.size)
-                        width: 20,
-                        height: 20,
-                        background: grid[i][j] ? 'steelblue' : 'white',
-                        border: '1px solid navy',
-                        }}
+                        onClick={ (e) => this.onClick(e.target) }
+                        // onClick= {this.state.grid}
+                           
+                         style={cellStyle(grid[i][j], grid[i][j]) }
                     >
                     </div>
 
                 )))}
             </div>
+            
             <button onClick={ () => this.play() }>Play</button>
             <button onClick={ () => this.stopAnimation() }>Stop</button>
             <button onClick={ () => this.clearGrid() }>Clear</button>
