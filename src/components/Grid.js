@@ -42,7 +42,7 @@ class Grid extends React.Component {
         let grid1 = make2DArray(gridRows, gridCols);
         for (let i = 0; i < gridRows; i++){
             for(let j = 0; j < gridCols; j++){
-                grid1[i][j] = Math.floor(Math.random() * 2);
+                // grid1[i][j] = Math.floor(Math.random() * 2);
                 
             }
         }
@@ -68,7 +68,7 @@ class Grid extends React.Component {
                 console.log("Not playinbg");
                 return;
             }
-            const grid = this.state.grid;
+            const gridA = this.state.grid;
             let agrid = make2DArray(gridRows, gridCols)
 
             for (let i = 0; i < gridRows; i++){
@@ -82,7 +82,7 @@ class Grid extends React.Component {
                        
                         if(x >= 0 && x < gridCols && y >=0 && y < gridRows){
                           
-                            if(grid[x][y]) {
+                            if(gridA[x][y]) {
                                 live++;
                                 
                             } 
@@ -94,14 +94,14 @@ class Grid extends React.Component {
                         All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 
                     */
-                    if((live > 3 || live < 2) && grid[i][j] === 1) {
+                    if((live > 3 || live < 2) && gridA[i][j] === 1) {
                         agrid[i][j] = 0;
                     }
-                    else if(live === 3 && grid[i][j] === 0) {
+                    else if(live === 3 && gridA[i][j] === 0) {
                         agrid[i][j] = 1;
                     }
                     else {
-                        agrid[i][j] = grid[i][j];
+                        agrid[i][j] = gridA[i][j];
                     }
                 }
                 
