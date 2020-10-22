@@ -32,7 +32,7 @@ const cellSize = size =>{
     // if (size === 60){
     //     return '8px'
     // }
-    return '25px'
+    return '20px'
 }
 
 export const cellStyle = (alive, size) => {
@@ -53,7 +53,8 @@ export const cellStyle = (alive, size) => {
         return{
             width: cellSize(size),
             height: cellSize(size),
-            background: "white"
+            background: '#283e51'
+        
         }
     }
 } 

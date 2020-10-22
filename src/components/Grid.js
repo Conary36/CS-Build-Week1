@@ -1,6 +1,6 @@
 import React from "react"
 import {displaySize, cellStyle} from "./displayFunctions"
-import Footer from "./Footer"
+
 
 
 const gridCols=30;
@@ -9,7 +9,6 @@ const PI = Math.PI; // 3.141592653589793
 const TWO_PI = 2 * PI; // 6.283185307179586
 
 const operations = [
-
         [0, 1],
         [0, -1],
         [1, -1],
@@ -40,21 +39,24 @@ class Grid extends React.Component {
         super(props);
         console.log("CONSTRUCTOR ...")
 
-        let grid = make2DArray(gridRows, gridCols);
+        let grid1 = make2DArray(gridRows, gridCols);
         for (let i = 0; i < gridRows; i++){
             for(let j = 0; j < gridCols; j++){
-                grid[i][j] = Math.floor(Math.random() * 2);
+                grid1[i][j] = Math.floor(Math.random() * 2);
                 
             }
         }
+
         this.state = {
-            grid: grid, 
+            grid: grid1, 
             playing: false,
             alive: 0,
-            clickable: false
+            isToggleOn: true
+            
         };
+        this.handleClick = this.handleClick.bind(this);
         this.animation = null;
-        console.log(grid);
+        console.log(grid1);
     }
 
     componentDidMount() {
@@ -72,15 +74,20 @@ class Grid extends React.Component {
             for (let i = 0; i < gridRows; i++){
                 for(let j = 0; j < gridCols; j++){
                     let live = 0;
+    
                     for(let k = 0 ; k < operations.length; k++) {
                         let op = operations[k];
                         let x = op[0] + i;
                         let y = op[1] + j;
+                       
                         if(x >= 0 && x < gridCols && y >=0 && y < gridRows){
+                          
                             if(grid[x][y]) {
                                 live++;
-                            }
+                                
+                            } 
                         }
+
                     }
                     /*Any live cell with two or three live neighbours survives.
                         Any dead cell with three live neighbours becomes a live cell.
@@ -104,21 +111,24 @@ class Grid extends React.Component {
         }, 1000);
     }
 
-    toggleCell =() =>{
-         let grid = make2DArray(gridRows, gridCols);
-        for (let i = 0; i < gridRows; i++){
-            for(let j = 0; j < gridCols; j++){
-                grid[i][j] = grid[i][j] ? this.state.alive : 1
-            }
-        }
-    }
+    // toggleCell =() =>{
+    //      let grid = make2DArray(gridRows, gridCols);
+    //     for (let i = 0; i < gridRows; i++){
+    //         for(let j = 0; j < gridCols; j++){
+    //             grid[i][j] = grid[i][j] ? this.state.alive : 1
+    //         }
+    //     }
+    // }
 
 
-    onClick(e){
-        ///FIND MOUSE CLICK HANDLER
-    
-    
-    }
+    handleClick =(e) => {
+        e.preventDefault();
+        this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+        
+    }));
+    console.log("Hello there!")
+  }
 
    stopAnimation () {
        this.setState({playing: false});
@@ -133,21 +143,22 @@ class Grid extends React.Component {
    }
     
 
-   render() {;
-        const grid = this.state.grid;
+   render() {
+        const cellGrid = this.state.grid;
         return(
             // 
             <div>   
             <div className='grid' style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, 20px)` }}>
-                {grid.map((mapRows, i) => 
-                mapRows.map((mapCols, j) => (
+                {cellGrid.map((Rows, i) => 
+                Rows.map((Cols, j) => (
                     <div
                         key={`${i}-${j}`}
-                        onClick={ (e) => this.onClick(e.target) }
-                        // onClick= {this.state.grid}
-                           
-                         style={cellStyle(grid[i][j], grid[i][j]) }
+                        onClick={this.handleClick}
+                        
+                        // onClick={ (e) => this.onClick(e.target) }
+                         style={cellStyle(cellGrid[i][j], cellGrid[i][j]) }
                     >
+                    
                     </div>
 
                 )))}
