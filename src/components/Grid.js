@@ -65,7 +65,7 @@ class Grid extends React.Component {
         }
         this.animation = setInterval(() => {
             if(!this.state.playing) {
-                console.log("Not playinbg");
+                console.log("Not playing");
                 return;
             }
             const gridA = this.state.grid;
@@ -73,17 +73,17 @@ class Grid extends React.Component {
 
             for (let i = 0; i < gridRows; i++){
                 for(let j = 0; j < gridCols; j++){
-                    let live = 0;
+                    let neighbours = 0;
     
                     for(let k = 0 ; k < operations.length; k++) {
                         let op = operations[k];
                         let x = op[0] + i;
                         let y = op[1] + j;
                        
-                        if(x >= 0 && x < gridCols && y >=0 && y < gridRows){
-                          
+                        if(x >= 0 && x < gridRows && y >=0 && y < gridCols){
+                                
                             if(gridA[x][y]) {
-                                live++;
+                                neighbours++;
                                 
                             } 
                         }
@@ -94,10 +94,10 @@ class Grid extends React.Component {
                         All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 
                     */
-                    if((live > 3 || live < 2) && gridA[i][j] === 1) {
+                    if((neighbours > 3 || neighbours < 2) && gridA[i][j] === 0) {
                         agrid[i][j] = 0;
                     }
-                    else if(live === 3 && gridA[i][j] === 0) {
+                    else if(neighbours === 3 && gridA[i][j] === 0) {
                         agrid[i][j] = 1;
                     }
                     else {
@@ -127,7 +127,7 @@ class Grid extends React.Component {
         isToggleOn: !state.isToggleOn
         
     }));
-    console.log("Hello there!")
+    console.log("Clicked!")
   }
 
    stopAnimation () {
@@ -135,7 +135,14 @@ class Grid extends React.Component {
    }
 
    clearGrid() {
-       this.setState({grid: this.map()});
+       let clearGrid = make2DArray(gridRows, gridCols);
+        for (let i = 0; i < gridRows; i++){
+            for(let j = 0; j < gridCols; j++){
+                clearGrid[i][j] = 0;
+                
+            }
+        }
+       console.log("clear cliked")
    }
 
    play() {
@@ -158,7 +165,6 @@ class Grid extends React.Component {
                         // onClick={ (e) => this.onClick(e.target) }
                          style={cellStyle(cellGrid[i][j], cellGrid[i][j]) }
                     >
-                    
                     </div>
 
                 )))}
