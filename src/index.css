@@ -5,13 +5,121 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #4B79A1;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #4B79A1;  /* fallback for old browsers*/
+  background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /*Chrome 10-25, Safari 5.1-6*/
+  background: linear-gradient(to right, #283E51, #4B79A1);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
 
+}
+
+.box{
+  display: inline-block;
+  border: 1px solid gray;
+  width: 15px;
+  height: 15px;
+  margin-left: -1px;
+  margin-bottom: -1px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+
+
+
+.off {
+  background-color: rgb(64,145,214);
+  opacity: 0.7;
+}
+
+.on {
+  background-color: rgb(224, 221, 19);
+}
+
+.box:hover {
+  background: #00ccff;
+}
+
+.center {
+  margin: auto;
+  display: table;
+  margin-top: 10px;
+}
+
+.grid {
+  width: 150px;
+  line-height: 0;
+  margin: auto;
+  box-shadow: 0px 0px 15px  rgb(224, 221, 19);
+  margin-top: 20px;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+
+  color: white;
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  margin-top: 10px;
+}
+
+h4 {
+  margin-top: 0px;
+}
+
+p,
+ul {
+  margin: 25px;
+  padding: 3px;
+}
+
+.drop{
+  text-decoration: none;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: white;
+}
+.drop:hover{
+  background-color: rgb(235, 243, 129);
+}
+
+
+
+.about {
+  padding: 5px;
+  margin: 1rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.information {
+  background-color: rgb(64,145,214);
+  opacity: 0.8;
+  width: 49%;
+  border: rgb(120,69,128) 5px solid;
+  box-shadow: 0px 0px 15px  rgb(224, 221, 19);
+  border-radius: 100px 10px 10px 100px;
+}
+
+.rules {
+  background-color: rgb(64,145,214);
+  opacity: 0.8;
+  width: 49%;
+  border: rgb(120,69,128) 5px solid;
+  box-shadow: 0px 0px 15px rgb(224, 221, 19);
+  border-radius: 10px 100px 100px 10px;
+  padding: 0 10px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: nowrap;
 }

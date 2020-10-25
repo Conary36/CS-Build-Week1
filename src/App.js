@@ -1,11 +1,12 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import './App.css';
-import Grid from "./components/Grid"
+import Main from "./components/Main"
 
 function App() {
   return (
     <div>
-        <Grid/>
+        <Main/>
     </div>
   );
 }
