@@ -35,16 +35,16 @@ code {
 
 
 .off {
-  background-color: rgb(64,145,214);
+  background-color: rgb(185,0,250);
   opacity: 0.7;
 }
 
 .on {
-  background-color: rgb(224, 221, 19);
+  background-color: rgb(240,25,120);
 }
 
 .box:hover {
-  background: #00ccff;
+  background:#F2F901
 }
 
 .center {
@@ -57,7 +57,7 @@ code {
   width: 150px;
   line-height: 0;
   margin: auto;
-  box-shadow: 0px 0px 15px  rgb(224, 221, 19);
+  box-shadow: 0px 0px 15px  rgb(85, 235, 240);
   margin-top: 20px;
 }
 
@@ -67,7 +67,7 @@ h2,
 h3,
 h4 {
   font-family: StoneWalls, sans-serif;
-  color: white;
+  color: #F2F901;
   margin: auto;
   text-align: center;
   width: 50%;
@@ -91,7 +91,7 @@ ul {
   background-color: white;
 }
 .drop:hover{
-  background-color: rgb(235, 243, 129);
+  background-color: rgb(240,25,120);
 }
 
 
