@@ -106,29 +106,24 @@ class Main extends React.Component {
 */
 
   gridSize = size => {
-    if (size === 20){
-            return {
-                display: "grid",
-                gridTemplateColumns: `repeat(${size}, 25px)`,
-                gridTemplateRows: `repeat(${size},25px)`
-            };
-    }
-        if (size === 40){
-            return{
-                display: "grid",
-                gridTemplateColumns: `repeat(${size}, 15px)`,
-                gridTemplateRows: `repeat(${size},15px)`
-            }
-        }
-        if (size === 60){
-            return{
-                display: "grid",
-                gridTemplateColumns: `repeat(${size}, 8px)`,
-                gridTemplateRows: `repeat(${size},8px)`
-            }
-        }
+    switch (size){
+            case "1":
+                this.cols = 25;
+                this.rows = 25;
+                break;
+            case "2":
+                this.cols = 15;
+                this.rows = 15;
+                break;
+            case "3":
+                this.cols = 8;
+                this.rows = 8;
+                break;
+            default:
+                this.cols = 50;
+                this.rows = 50;
 
-   
+    }
     this.clear();
   };
 

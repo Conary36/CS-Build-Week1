@@ -54,7 +54,9 @@ class Buttons extends React.Component {
             <div className="dpItem">
             <DropdownItem className="drop">50X50</DropdownItem>
             {/* <br/> */}
-            <DropdownItem className="drop" eventKey="1">75X75</DropdownItem>
+            <DropdownItem className="drop" eventKey="1">25X25</DropdownItem>
+            <DropdownItem className="drop" eventKey="2">15X15</DropdownItem>
+            <DropdownItem className="drop" eventKey="3">8X8</DropdownItem>
             </div>
           </DropdownButton>
 

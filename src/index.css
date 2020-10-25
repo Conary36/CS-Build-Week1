@@ -11,6 +11,11 @@ body {
 
 }
 
+@font-face{
+  font-family: 'StoneWalls';
+  src: local('StoneWalls'), url(./fonts/StoneWalls.ttf)format('truetype');
+}
+
 .box{
   display: inline-block;
   border: 1px solid gray;
@@ -61,7 +66,7 @@ h1,
 h2,
 h3,
 h4 {
-
+  font-family: StoneWalls, sans-serif;
   color: white;
   margin: auto;
   text-align: center;
