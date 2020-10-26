@@ -26,24 +26,24 @@ class Buttons extends React.Component {
             size="sm"
             onClick={this.props.pauseButton}
           >
-            <img src="" alt="Pause" />
+           Pause
           </Button>
-          <Button variant="outline-light" size="sm" onClick={this.props.clear}>
-          <img src="" alt="Delete"/>
+          <Button variant="secondary" size="sm" onClick={this.props.clear}>
+           Clear
           </Button>
-          <Button variant="outline-light" size="sm" onClick={this.props.slow}>
-          <img src="" alt="Slow"/>
+          <Button variant="primary" size="sm" onClick={this.props.slow}>
+            Slow
           </Button>
-          <Button variant="outline-light" size="sm" onClick={this.props.fast}>
-          <img src="" alt="fast"/>
+          <Button variant="primary" size="sm" onClick={this.props.fast}>
+            Fast
           </Button>
-          <Button variant="outline-light" size="sm" onClick={this.props.seed}>
-          <img src="" alt="Random"/>
+          <Button variant="primary" size="sm" onClick={this.props.seed}>
+            Seed
           </Button>
          
           <DropdownButton
            
-            variant="outline-light"
+            variant="light"
             size="sm"
             title="Grid Size"
             id=" dropdown-basic-button"

@@ -8,22 +8,22 @@ class Presets extends React.Component {
       <div className="center">
         <h4>Presets</h4>
         <ButtonToolbar>
-          <Button variant="outline-light" size="sm" onClick={this.props.glider}>
-          <img src="" alt="Glider"/>
+          <Button variant="info" size="sm" onClick={this.props.glider}>
+          Glider
           </Button>
           <Button
-            variant="outline-light"
+            variant="info"
             size="sm"
             onClick={this.props.pulsar}
           >
-            <img src="" alt="Pulsar"/>
+          Pulsar
           </Button>
            <Button
-            variant="outline-light"
+            variant="danger"
             size="sm"
             onClick={this.props.gosperGun}
           >
-            <img src="" alt="Gosperr"/>
+          GosperGun
           </Button>
         </ButtonToolbar>
       </div>
